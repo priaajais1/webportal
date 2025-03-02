@@ -1,6 +1,6 @@
 import { PrimaryButton } from '@fluentui/react';
 import { incidentsData } from './incidentDetails';
-import iframeId from './App';
+import { iframeId } from './constants';
 
 export function incident({
   index,

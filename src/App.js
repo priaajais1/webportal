@@ -2,8 +2,7 @@ import './App.css';
 import { Stack } from '@fluentui/react';
 import { incident } from './incident';
 import React from 'react';
-
-export const iframeId = 'copilotforservice-ppe';
+import { iframeId } from './constants';
 
 function App() {
   const [selected, setSelected] = React.useState(null);
