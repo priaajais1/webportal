@@ -20,7 +20,7 @@ export function incident({
         }, '*');
         // TODO: send session event
       }}>
-        <div>{`Case ${currentCase.id}${selected == index ? '-Selected': ''}`}</div>
+        <div>{`Case ${currentCase.id}${selected === index ? '-Selected': ''}`}</div>
       </PrimaryButton >
     </div>
   )
