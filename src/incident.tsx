@@ -1,6 +1,6 @@
 import React from 'react';
 import { PrimaryButton } from '@fluentui/react';
-import { incidentsData } from './incidentDetails';
+import { incidentsData } from './SampleData/incidentDetails';
 import { sendMessage } from './messageHandler';
 import { MessageType, ObjectType } from './constants';
 
