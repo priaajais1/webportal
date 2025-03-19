@@ -9,9 +9,14 @@ import {
   TextField, 
   DialogFooter, 
   PrimaryButton, 
-  DefaultButton 
+  DefaultButton,
+  Toggle,
+  DocumentCard,
+  DocumentCardTitle,
+  DocumentCardDetails,
+  DocumentCardActions
 } from '@fluentui/react';
-import { incident } from './incident';
+import { Incident } from './incident';
 import React, { useEffect, useState } from 'react';
 import { iframeId } from './constants';
 import { setupMessageHandler } from './messageHandler';
@@ -35,20 +40,49 @@ function App() {
   const [widgetUrl, setWidgetUrl] = useState("https://ccaas-embed-ppe.azureedge.net");
   const [dynamicsOrgUrl, setDynamicsOrgUrl] = useState("https://orge0da95d1.crm.dynamics.com");
   const [copilotExtensionUrl, setCopilotExtensionUrl] = useState("https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js");
+  const [showMessageBar, setShowMessageBar] = useState(false);
 
-  const cases = Array.from({ length: 3 }, (_, index) =>
-    incident({
-      index, selected: selectedIncident, onSelected: () => {
+  const cases = incidentsData.map((incident, index) => (
+    <Incident
+      key={index}
+      index={index}
+      onSelected={() => {
         setSelectedIncident(index);
-        setSelectedEmail(null);
-        setSelectedInteraction(null);
+        setSelectedEmail(null);       setSelectedInteraction(null);
       }
-    })
-  );
+      }
+      selected={selectedIncident}
+    />  
+    // <PrimaryButton
+    // styles={{
+    //   root: {
+    //     width: 300,
+    //     backgroundColor: selectedIncident === index ? 'green' : undefined,
+    //   },
+    //   textContainer: {
+    //     width: 300,
+    //     overflow: 'hidden',
+    //   },
+    //   label: {
+    //     overflow: 'hidden',
+    //     whiteSpace: 'nowrap',
+    //     textOverflow: 'ellipsis',
+    //   }
+    // }}
+    //   key={index}
+    //   text={incident.subject}
+    //   onClick={() => {
+    //     setSelectedIncident(index);
+    //     setSelectedEmail(null);
+    //     setSelectedInteraction(null);
+    //   }}
+    // />
+  ));
 
   const emailKeys = Object.keys(emailDetails);
   const emails = emailKeys.map((emailId) =>
     <Email
+      key={emailId}
       emailId={emailId}
       selectedKey={selectedEmail}
       onSelected={() => {
@@ -61,7 +95,9 @@ function App() {
 
   const interactions = interactionSampleData.map((interaction) =>
     <Interaction
+      key={interaction.interactionId}
       interactionId={interaction.interactionId}
+      interactionNumber={interaction.interactionNumber || ''}
       selectedKey={selectedInteraction}
       onSelected={() => {
         setSelectedInteraction(interaction.interactionId);
@@ -82,10 +118,7 @@ function App() {
 
   // Generate iframe src URL
   const getIframeSrc = () => {
-    //return `${widgetUrl}/widget/index.html?dynamicsUrl=${dynamicsOrgUrl}&msdynembedmode=1&copilotExtensionUrl=${copilotExtensionUrl}`;
     return "https://copilotforservice-ppe.azureedge.net/widget/index.html?dynamicsUrl=https://org13bc2934.crm10.dynamics.com&copilotExtensionUrl=https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js"
-    //return "https://copilotforservice-test.azureedge.net/widget/index.html?dynamicsUrl=https://org4a30ed1d.crm10.dynamics.com&copilotExtensionUrl=https://prijais.blob.core.windows.net/prijais/portalExtension.js"
-    //return "https://ccaas-embed-ppe.azureedge.net/widget/index.html?dynamicsUrl=https://orgf9f3c36d.crm10.dynamics.com&copilotExtensionUrl=https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js"
   };
 
   // Dialog config
@@ -97,47 +130,78 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Stack horizontal>
-        <Stack.Item>
-          <iframe id={iframeId} src={getIframeSrc()} style={{
-            height: '100vh',
-            width: '50vw'
-          }} />
-        </Stack.Item>
-        <Stack.Item id="contoso-crm" style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'stretch',
-        }}>
-          <Stack horizontal>
-            <Stack.Item>
-              <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '8px' }}>
-                <IconButton
-                  iconProps={{ iconName: 'Settings' }}
-                  title="Settings"
-                  ariaLabel="Settings"
-                  onClick={() => setIsSettingsDialogOpen(true)}
-                />
-              </div>
-              {messageBarText.map((msg, index) => (
-                <MessageBar key={index} messageBarType={MessageBarType.info} dismissButtonAriaLabel="Close" isMultiline={false} onDismiss={() => {
-                  setMessageBarText(messageBarText.filter((_, i) => i !== index));
-                }}>
-                  {msg}
-                </MessageBar>
-              ))}
-              {cases}
-              {emails}
-              {interactions}
-            </Stack.Item>
-            <Stack.Item>
-              {selectedIncident !== null && <CaseDetails selected={selectedIncident} />}
-              {selectedEmail !== null && <EmailDetails selectedKey={selectedEmail} />}
-              {selectedInteraction !== null && <InteractionDetails selectedKey={selectedInteraction} />}
-            </Stack.Item>
-          </Stack>
-        </Stack.Item>
+    <div className="App" style={{height: '100vh', overflow:'hidden'}}>
+      <Stack>
+        <div id="header" style={{ display: 'flex', justifyContent: 'space-around', backgroundColor:'rgb(0, 120, 212)', padding: '16px', height: '64px' }}>
+          <h1 style={{color: 'white', marginLeft: '16px'}}>Contoso CRM</h1>
+          <div style={{ position: 'absolute', right: 32, top: 32 }}>
+            <IconButton
+              styles={{ root: { color: 'white' } }}
+              iconProps={{ iconName: 'Settings' }}
+              title="Settings"
+              ariaLabel="Settings"
+              onClick={() => setIsSettingsDialogOpen(true)}
+            />
+          </div>
+        </div>
+        <Stack horizontal>
+          
+          <Stack.Item id="contoso-crm" style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            width: '70vw',
+            height: 'calc(100vh - 96px)',
+            textAlign: 'left'
+          }}>
+            <Stack horizontal>
+              <Stack.Item grow={1}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', textAlign: 'left', padding: 16 }}>
+                  <DocumentCard>
+                    <DocumentCardTitle title="Incident" styles={{ root: { fontWeight: 'bold' } }} />
+                    <DocumentCardDetails>
+                      <div style={{padding : "12px"}}>Manage and track customer incidents.</div>
+                        {cases}
+                    </DocumentCardDetails>
+                  </DocumentCard>
+                  <DocumentCard>
+                    <DocumentCardTitle title="Emails" styles={{ root: { fontWeight: 'bold' } }} />
+                    <DocumentCardDetails>
+                      <div style={{padding : "12px"}}>View and manage customer Emails.</div>
+                      {emails}
+                    </DocumentCardDetails>
+                  </DocumentCard>
+                  <DocumentCard>
+                    <DocumentCardTitle title="Interactions" styles={{ root: { fontWeight: 'bold' } }} />
+                    <DocumentCardDetails>
+                      <div style={{padding : "12px"}}>Access and manage interactions.</div>
+                      {interactions}
+                    </DocumentCardDetails>
+                  </DocumentCard>
+                </div>
+                {showMessageBar && messageBarText.map((msg, index) => (
+                  <MessageBar key={index} messageBarType={MessageBarType.info} dismissButtonAriaLabel="Close" isMultiline={false} onDismiss={() => {
+                    setMessageBarText(messageBarText.filter((_, i) => i !== index));
+                  }}>
+                    {msg}
+                  </MessageBar>
+                ))}
+              </Stack.Item>
+              <Stack.Item id ="text" grow={2}>
+                {selectedIncident !== null && <CaseDetails selected={selectedIncident} />}
+                {selectedEmail !== null && <EmailDetails selectedKey={selectedEmail} />}
+                {selectedInteraction !== null && <InteractionDetails selectedKey={selectedInteraction} />}
+              </Stack.Item>
+            </Stack>
+          </Stack.Item>
+          <Stack.Item>
+            <iframe id={iframeId} src={getIframeSrc()} style={{
+              height: 'calc(100vh - 96px)',
+              width: '30vw',
+              textAlign: 'left'
+            }} />
+          </Stack.Item>
+        </Stack>
       </Stack>
 
       <Dialog
@@ -160,6 +224,11 @@ function App() {
           label="Copilot Extension URL"
           defaultValue={copilotExtensionUrl}
           onChange={(_, newValue) => newValue !== undefined && setCopilotExtensionUrl(newValue)}
+        />
+        <Toggle
+          label="Show Message Bar"
+          checked={showMessageBar}
+          onChange={(_, checked) => setShowMessageBar(!!checked)}
         />
         <DialogFooter>
           <PrimaryButton onClick={() => setIsSettingsDialogOpen(false)} text="Save" />

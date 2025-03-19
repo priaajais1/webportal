@@ -2,6 +2,7 @@ import React from 'react';
 import { PrimaryButton } from '@fluentui/react';
 import { sendMessage } from './messageHandler';
 import { MessageType, ObjectType } from './constants';
+import { emailDetails } from './SampleData/EmailDetails';
 
 export interface EmailProps {
   emailId: string;
@@ -18,14 +19,27 @@ export function Email({
     <div style={{
       padding: '10px'
     }}>
-      <PrimaryButton style={{
-        width: '300px',
-        backgroundColor: selectedKey === key ? 'green' : undefined
-      }} onClick={() => {
+      <PrimaryButton
+      styles={{
+        root: {
+          width: 300,
+          backgroundColor: selectedKey === key ? 'green' : undefined
+        },
+        textContainer: {
+          width: 300,
+          overflow: 'hidden',
+        },
+        label: {
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          textOverflow: 'ellipsis',
+        }
+      }}
+       onClick={() => {
         onSelected();
         sendMessage(key, ObjectType.Email, MessageType.NavigateRequest);
       }}>
-        <div>{`Email ${key}${selectedKey === key ? '-Selected': ''}`}</div>
+        {emailDetails[key].subject}
       </PrimaryButton >
     </div>
   )

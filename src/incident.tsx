@@ -10,7 +10,7 @@ export interface IncidentProps {
   selected: number | null;
 }
 
-export function incident({
+export function Incident({
   index,
   onSelected,
   selected
@@ -18,17 +18,30 @@ export function incident({
   const currentCase = incidentsData[index];
   return (
     <div style={{
-      padding: '10px'
-    }}>
-      <PrimaryButton style={{
-        width: '300px',
-        backgroundColor: selected === index ? 'green' : undefined
-      }} onClick={() => {
-        onSelected();
-        sendMessage(currentCase.caseId, ObjectType.Case, MessageType.NavigateRequest);
-      }}>
-        <div>{`Case ${currentCase.caseId}${selected === index ? '-Selected': ''}`}</div>
-      </PrimaryButton >
-    </div>
+          padding: '10px'
+        }}>
+          <PrimaryButton
+          styles={{
+            root: {
+              width: 300,
+              backgroundColor: selected === index ? 'green' : undefined
+            },
+            textContainer: {
+              width: 300,
+              overflow: 'hidden',
+            },
+            label: {
+              overflow: 'hidden',
+              whiteSpace: 'nowrap',
+              textOverflow: 'ellipsis',
+            }
+          }}
+           onClick={() => {
+            onSelected();
+            sendMessage(currentCase.caseId, ObjectType.Case, MessageType.NavigateRequest);
+          }}>
+            {currentCase.subject}
+          </PrimaryButton>
+        </div>
   )
 }

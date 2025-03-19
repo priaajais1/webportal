@@ -3,7 +3,7 @@ import { InteractionData } from "./ICopilotAdapterInterface";
 export const interactionDetails: InteractionData[] = [
   {
     interactionId: "interaction-id-1",
-    interactionNumber: "mockId",
+    interactionNumber: "SR-2024-0542",
     conversation: [
       {
         user: "agent",
