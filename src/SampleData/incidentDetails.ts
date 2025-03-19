@@ -13,12 +13,12 @@ export const incidentsData = [
         record_id: "02saj000000OKbtAAG",
         type: "email",
         activity_content:
-          "--------------- Original Message ---------------\nFrom: Salim Shaikh [test@microsoft.com]\nSent: 5/1/2024, 10:16 AM\nTo: efrank@genepoint.com\nSubject: Test email subject Maintenance guidelines for generator unclear [ thread::JMCfVIOHLmGf1MWHZSQCgnc:: ]\n\nTest email description Maintenance guidelines for generator unclear\n_____________________________________________________________________\nPowered by Salesforce\nhttp://www.salesforce.com/\n\nthread::JMCfVIOHLmGf1MWHZSQCgnc::\n\n_____________________________________________________________________\nPowered by Salesforce\nhttp://www.salesforce.com/",
+          "--------------- Original Message ---------------\nFrom: Salim Shaikh [salims@microsoft.com]\nSent: 5/1/2024, 10:16 AM\nTo: efrank@genepoint.com\nSubject: Test email subject Maintenance guidelines for generator unclear [ thread::JMCfVIOHLmGf1MWHZSQCgnc:: ]\n\nTest email description Maintenance guidelines for generator unclear\n_____________________________________________________________________\nPowered by Salesforce\nhttp://www.salesforce.com/\n\nthread::JMCfVIOHLmGf1MWHZSQCgnc::\n\n_____________________________________________________________________\nPowered by Salesforce\nhttp://www.salesforce.com/",
         datetime: "2024-06-07T23:39:37+00:00",
-        additional_context: {
-          sender: "test@microsoft.com",
+        additional_context: JSON.stringify({
+          sender: "salims@microsoft.com",
           torecipients: "efrank@genepoint.com"
-        }
+        })
       },
       {
         record_id: "02saj000000Ga5xAAC",
@@ -26,10 +26,10 @@ export const incidentsData = [
         activity_content:
           "Test email description  Maintenance guidelines for generator unclear\n_____________________________________________________________________\nPowered by Salesforce\nhttp://www.salesforce.com/\n\nthread::JMCfVIOHLmGf1MWHZSQCgnc::",
         datetime: "2024-05-02T17:16:56+00:00",
-        additional_context: {
-          sender: "test@microsoft.com",
+        additional_context:JSON.stringify({
+          sender: "salims@microsoft.com",
           torecipients: "efrank@genepoint.com"
-        }
+        })
       },
       {
         record_id: "0D5aj0000036kPqCAI",

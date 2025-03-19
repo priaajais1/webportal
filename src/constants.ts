@@ -14,9 +14,18 @@ export const enum ObjectType {
 export const MessageType = {
   NavigateRequest: 'navigate-request',
   caseRequest: 'get-portal-case-data-request',
-  caseResponse: 'get-portal-case-data-response',
   getData: 'get-portal-data-request',
-  getDataResponse: 'get-portal-data-response',
   getEmailData: 'get-portal-email-data-request',
-  getEmailDataResponse: 'get-portal-email-data-response',
+  getKnowledgeArticleData: 'get-portal-knowledge-article-data-request',
+  getInteractionData: 'get-portal-interaction-data-request',
 }
+
+export const MessageTypeResponses: Record<string, string> = {
+[MessageType.NavigateRequest]: 'navigate-response',
+  [MessageType.caseRequest]: 'get-portal-case-data-response',
+  [MessageType.getData]: 'get-portal-data-response',
+  [MessageType.getEmailData]: 'get-portal-email-data-response',
+  [MessageType.getKnowledgeArticleData]: 'get-portal-knowledge-article-data-response',
+  [MessageType.getInteractionData]: 'get-portal-interaction-data-response',
+};
+

@@ -23,7 +23,7 @@ export const KnowledgeArticlesData = [
     title: "How to troubleshoot network connectivity issues in a corporate environment",
     summary: "This article provides a comprehensive guide on troubleshooting network connectivity issues in a corporate environment. It covers common problems, diagnostic tools, and step-by-step solutions to ensure a stable and reliable network connection for all users.",
     extract: "This article provides a comprehensive guide on troubleshooting network connectivity issues in a corporate environment. It covers common problems, diagnostic tools, and step-by-step solutions.",
-    relevance: 1,
+    relevance: 0,
     source: "external",
   },
   {
@@ -32,7 +32,7 @@ export const KnowledgeArticlesData = [
     title: "Effective strategies for managing remote teams and ensuring productivity",
     summary: "Managing remote teams can be challenging, but with the right strategies, it is possible to ensure productivity and collaboration. This article discusses various techniques and tools that can help managers effectively lead remote teams, maintain communication, and achieve organizational goals.",
     extract: "Managing remote teams can be challenging, but with the right strategies, it is possible to ensure productivity and collaboration. This article discusses various techniques and tools.",
-    relevance: 2,
+    relevance: 0,
     source: "external",
   },
   {
@@ -41,7 +41,7 @@ export const KnowledgeArticlesData = [
     title: "Best practices for securing sensitive data in cloud storage solutions",
     summary: "Cloud storage solutions offer convenience and scalability, but securing sensitive data is crucial. This article outlines best practices for protecting data in the cloud, including encryption, access controls, and regular security audits. Implementing these measures can help prevent data breaches and ensure compliance with regulations.",
     extract: "Cloud storage solutions offer convenience and scalability, but securing sensitive data is crucial. This article outlines best practices for protecting data in the cloud.",
-    relevance: 3,
+    relevance: 0,
     source: "external",
   },
   {

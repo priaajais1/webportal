@@ -74,7 +74,7 @@ function App() {
   useEffect(() => {
     setupMessageHandler((message) => {
       setMessageBarText(prevMessages => {
-        const updatedMessages = [...prevMessages, message];
+        const updatedMessages = [...prevMessages, message.substring(0, 200)];
         return updatedMessages.length > 5 ? updatedMessages.slice(-5) : updatedMessages;
       });
     });
@@ -83,7 +83,9 @@ function App() {
   // Generate iframe src URL
   const getIframeSrc = () => {
     //return `${widgetUrl}/widget/index.html?dynamicsUrl=${dynamicsOrgUrl}&msdynembedmode=1&copilotExtensionUrl=${copilotExtensionUrl}`;
-    return "https://ccaas-embed-ppe.azureedge.net/widget/index.html?dynamicsUrl=https://orge0da95d1.crm.dynamics.com&copilotExtensionUrl=https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js"
+    return "https://copilotforservice-ppe.azureedge.net/widget/index.html?dynamicsUrl=https://org13bc2934.crm10.dynamics.com&copilotExtensionUrl=https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js"
+    //return "https://copilotforservice-test.azureedge.net/widget/index.html?dynamicsUrl=https://org4a30ed1d.crm10.dynamics.com&copilotExtensionUrl=https://prijais.blob.core.windows.net/prijais/portalExtension.js"
+    //return "https://ccaas-embed-ppe.azureedge.net/widget/index.html?dynamicsUrl=https://orgf9f3c36d.crm10.dynamics.com&copilotExtensionUrl=https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js"
   };
 
   // Dialog config
