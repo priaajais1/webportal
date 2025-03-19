@@ -101,7 +101,7 @@ export const emailDetails: Record<string, EmailData> = {
         ]
       }
     ]
-  },
+  }/*,
   "02saj000000HwSbDDK": {
     to: "cjohnson@uog.com",
     from: "test@microsoft.com",
@@ -132,5 +132,5 @@ export const emailDetails: Record<string, EmailData> = {
         ]
       }
     ]
-  },
+  },*/
 };

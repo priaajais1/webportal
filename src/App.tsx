@@ -36,7 +36,7 @@ function App() {
   const [dynamicsOrgUrl, setDynamicsOrgUrl] = useState("https://orge0da95d1.crm.dynamics.com");
   const [copilotExtensionUrl, setCopilotExtensionUrl] = useState("https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js");
 
-  const cases = Array.from({ length: 5 }, (_, index) =>
+  const cases = Array.from({ length: 3 }, (_, index) =>
     incident({
       index, selected: selectedIncident, onSelected: () => {
         setSelectedIncident(index);
@@ -105,7 +105,7 @@ function App() {
             width: '50vw'
           }} />
         </Stack.Item>
-        <Stack.Item style={{
+        <Stack.Item id="contoso-crm" style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'stretch',

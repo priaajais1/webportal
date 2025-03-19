@@ -1,6 +1,6 @@
 import { iframeId, MessageType, MessageTypeResponses, ObjectType } from './constants';
 import { incidentsData } from './SampleData/incidentDetails';
-import { searchKnowledgeArticles } from './knowledgeArticles';
+import { searchKnowledgeArticles } from './SampleData/knowledgeArticles';
 import { emailDetails } from './SampleData/EmailDetails';
 import { interactionDetails } from './SampleData/InteractionDetails';
 
@@ -29,7 +29,7 @@ const listener = (event: MessageEvent, addMessage: (message: string) => void) =>
     }
   } else if (eventData.type === MessageType.getKnowledgeArticleData) {
     const articles = searchKnowledgeArticles(eventData.objectId);
-    sendMessage(eventData.objectId, ObjectType.KnowledgeArticle, MessageTypeResponses[MessageType.getKnowledgeArticleData], [...dataFromWidget, ...articles]);
+    sendMessage(eventData.objectId, ObjectType.KnowledgeArticle, MessageTypeResponses[MessageType.getKnowledgeArticleData], [...(dataFromWidget ?? []), ...articles]);
     appendToMessage = ` articles: ${articles.length}`;
   } else if (eventData.type === MessageType.getEmailData) {
     const emailData = emailDetails[objectId];

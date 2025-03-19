@@ -193,7 +193,7 @@ export const interactionDetails: InteractionData[] = [
         text: 'No, that\'s all I needed. Have a great day!'
       }
     ]
-  },
+  }/*,
   {
     interactionId: "interaction-id-4",
     interactionNumber: "SR-2024-0723",
@@ -338,5 +338,5 @@ export const interactionDetails: InteractionData[] = [
         text: 'That\'s all for now. Thanks for your help!'
       }
     ]
-  }
+  }*/
 ];
