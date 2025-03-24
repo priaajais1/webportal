@@ -20,9 +20,9 @@ export const KnowledgeArticlesData = [
   {
     id: "4157a712-3e66-ef11-a670-000d3a0c635d",
     url: "https://www.contoso.com/article1",
-    title: "How to troubleshoot network connectivity issues in a corporate environment",
-    summary: "This article provides a comprehensive guide on troubleshooting network connectivity issues in a corporate environment. It covers common problems, diagnostic tools, and step-by-step solutions to ensure a stable and reliable network connection for all users.",
-    extract: "This article provides a comprehensive guide on troubleshooting network connectivity issues in a corporate environment. It covers common problems, diagnostic tools, and step-by-step solutions.",
+    title: "How to address unauthorized charges on Billing System B?",
+    summary: "Billing System B authorizations are not attempted more than once per calendar day, and most accounts graduate out of threshold billing after multiple months of successful payment history.",
+    extract: "The document titled CST User Guide provides guidelines on handling unauthorized charges on Billing System B. It explains the process of threshold billing, which is applied to accounts displaying high-risk behavior. When a customer exceeds their billing threshold, the Commerce system attempts to authorize the payment method on file. If the payment is approved, it is reversed immediately without notifying the customer.",
     relevance: 0,
     source: "external",
   },

@@ -118,7 +118,7 @@ function App() {
 
   // Generate iframe src URL
   const getIframeSrc = () => {
-    return "https://copilotforservice-ppe.azureedge.net/widget/index.html?dynamicsUrl=https://org13bc2934.crm10.dynamics.com&copilotExtensionUrl=https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js"
+    return "https://copilotforservice-ppe.azureedge.net/widget/index.html?dynamicsUrl=https://orge0da95d1.crm.dynamics.com&copilotExtensionUrl=https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js"
   };
 
   // Dialog config
