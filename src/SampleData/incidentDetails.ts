@@ -40,8 +40,8 @@ export const incidentsData = [
       }
     ]
   },
-  {
-    caseId: 'case-id-2',
+{
+    caseId: '9ab03fab-dd8e-4373-9a9f-0f062c06cb04',
     subject: "Software installation problem",
     description: "Customer is unable to install the software on their system. They have followed all the installation instructions provided in the manual, but the installation process fails at the final step. The error message indicates a missing dependency, but they are unsure how to resolve it. They need guidance to complete the installation and ensure that the software is properly configured for their environment.",
     customerName: "Contoso Ltd.",
