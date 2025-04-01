@@ -37,7 +37,7 @@ function App() {
   
   // Settings state
   const [isSettingsDialogOpen, setIsSettingsDialogOpen] = useState(false);
-  const [widgetUrl, setWidgetUrl] = useState("https://ccaas-embed-ppe.azureedge.net");
+  const [widgetUrl, setWidgetUrl] = useState("https://copilotforservice-test.azureedge.net");
   const [dynamicsOrgUrl, setDynamicsOrgUrl] = useState("https://orge0da95d1.crm.dynamics.com");
   const [copilotExtensionUrl, setCopilotExtensionUrl] = useState("https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js");
   const [showMessageBar, setShowMessageBar] = useState(false);
@@ -118,7 +118,7 @@ function App() {
 
   // Generate iframe src URL
   const getIframeSrc = () => {
-    return "https://copilotforservice-test.azureedge.net/widget/index.html?dynamicsUrl=https://orgb9e8beb8.crm10.dynamics.com&copilotExtensionUrl=https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js"
+    return `${widgetUrl}/widget/index.html?dynamicsUrl=${dynamicsOrgUrl}&copilotExtensionUrl=${copilotExtensionUrl}`
   };
 
   // Dialog config
