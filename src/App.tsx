@@ -37,7 +37,7 @@ function App() {
   
   // Settings state
   const [isSettingsDialogOpen, setIsSettingsDialogOpen] = useState(false);
-  const [widgetUrl, setWidgetUrl] = useState("https://copilotforservice-ppes1.azureedge.net");
+  const [widgetUrl, setWidgetUrl] = useState("https://copilotforservice-ppe.azureedge.net");
   const [dynamicsOrgUrl, setDynamicsOrgUrl] = useState("https://org88750969.crm10.dynamics.com");
   const [copilotExtensionUrl, setCopilotExtensionUrl] = useState("https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js");
   const [showMessageBar, setShowMessageBar] = useState(false);
