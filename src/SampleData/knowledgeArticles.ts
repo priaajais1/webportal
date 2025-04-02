@@ -13,7 +13,7 @@ export function searchKnowledgeArticles(query: string) {
 
   articleScores.sort((a, b) => b.score - a.score);
 
-  return articleScores.slice(0, 4).map(item => item.article);
+  return articleScores.slice(0, 3).map(item => item.article);
 }
 
 export const KnowledgeArticlesData = [
