@@ -39,7 +39,7 @@ function App() {
   const [isSettingsDialogOpen, setIsSettingsDialogOpen] = useState(false);
   const [widgetUrl, setWidgetUrl] = useState("https://copilotforservice-ppe.azureedge.net");
   const [dynamicsOrgUrl, setDynamicsOrgUrl] = useState("https://org88750969.crm10.dynamics.com");
-  const [copilotExtensionUrl, setCopilotExtensionUrl] = useState("https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js");
+  const [useCustomCopilotExtension, setUseCustomCopilotExtension] = useState(true);
   const [showMessageBar, setShowMessageBar] = useState(false);
 
   const cases = incidentsData.map((incident, index) => (
@@ -118,7 +118,7 @@ function App() {
 
   // Generate iframe src URL
   const getIframeSrc = () => {
-    return `${widgetUrl}/widget/index.html?dynamicsUrl=${dynamicsOrgUrl}&copilotExtensionUrl=${copilotExtensionUrl}`
+    return `${widgetUrl}/widget/index.html?dynamicsUrl=${dynamicsOrgUrl}&useCustomCopilotExtension=${useCustomCopilotExtension}`
     // return "https://copilotforservice-ppes1.azureedge.net/widget/index.html?dynamicsUrl=https://org88750969.crm10.dynamics.com&copilotExtensionUrl=https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js";
 
   };
@@ -222,10 +222,10 @@ function App() {
           defaultValue={dynamicsOrgUrl}
           onChange={(_, newValue) => newValue !== undefined && setDynamicsOrgUrl(newValue)}
         />
-        <TextField
-          label="Copilot Extension URL"
-          defaultValue={copilotExtensionUrl}
-          onChange={(_, newValue) => newValue !== undefined && setCopilotExtensionUrl(newValue)}
+        <Toggle
+          label="useCustomCopilotExtension"
+         checked={showMessageBar}
+         onChange={(_, checked) => setUseCustomCopilotExtension(!!checked)}
         />
         <Toggle
           label="Show Message Bar"
