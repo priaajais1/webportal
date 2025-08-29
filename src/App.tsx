@@ -224,7 +224,7 @@ function App() {
         />
         <Toggle
           label="useCustomCopilotExtension"
-         checked={showMessageBar}
+         checked={useCustomCopilotExtension}
          onChange={(_, checked) => setUseCustomCopilotExtension(!!checked)}
         />
         <Toggle
