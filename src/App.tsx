@@ -118,7 +118,7 @@ function App() {
 
   // Generate iframe src URL
   const getIframeSrc = () => {
-    return `${widgetUrl}/widget/index.html?dynamicsUrl=${dynamicsOrgUrl}&useCustomCopilotExtension=${useCustomCopilotExtension}`
+    return `${widgetUrl}/widget/index.html?dynamicsUrl=${dynamicsOrgUrl}&useCustomCopilotExtension=${useCustomCopilotExtension ? 1 : 0}`
     // return "https://copilotforservice-ppes1.azureedge.net/widget/index.html?dynamicsUrl=https://org88750969.crm10.dynamics.com&copilotExtensionUrl=https://embedcopilotnonprod.blob.core.windows.net/embedcopilotnonprodcontainer/portalExtension.js";
 
   };
