@@ -71,7 +71,7 @@ export const incidentsData = [
     ]
   },
   {
-    caseId: 'case-id-3',
+    caseId: '5005e000006QpZVAA2',
     subject: "Billing issue",
     description: "Customer has a question about their bill. They have noticed an unexpected charge on their latest invoice and need clarification on the details of this charge. They have reviewed their usage and cannot find any activity that would justify the additional cost. They are seeking an explanation and possible adjustment to their bill to ensure that they are not being overcharged for services they did not use.",
     customerName: "Fabrikam, Inc.",
